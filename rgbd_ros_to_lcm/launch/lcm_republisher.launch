@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="lcm_republisher" pkg="rgbd_ros_to_lcm" type="lcm_republisher" output="screen" respawn="false" >
+    
+    <rosparam subst_value="true">      
+      # input parameters
+      subscribe_point_cloud: false
+      rgb_topic: /camera/rgb/image_rect_color
+      depth_topic: /camera/depth_registered/sw_registered/image_rect_raw
+      cloud_topic: /camera/depth_registered/points
+
+      # output parameters
+      output_lcm_channel: "OPENNI_FRAME"
+      compress_rgb: true
+      compress_depth: true
+      lcm_url: "/home/hoang/Datasets"
+      debug_print_statements: true
+    </rosparam>
+  </node>
+</launch>
